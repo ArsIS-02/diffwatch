@@ -1,0 +1,9 @@
+[Unit]
+Description=DiffWatch daily host state snapshot
+
+[Service]
+Type=oneshot
+Environment=DW_GELF_HOST=127.0.0.1
+Environment=DW_GELF_PORT=12206
+EnvironmentFile=-%h/diffwatch/diffwatch.env
+ExecStart=/usr/bin/python3 %h/diffwatch/diffwatch.py
